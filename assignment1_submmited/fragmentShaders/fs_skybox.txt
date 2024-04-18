@@ -1,0 +1,19 @@
+#version 330 core
+
+in vec3 aPos;
+in vec3 aNormal;
+in vec3 aTexCoord;
+
+out vec4 fragColor;
+
+uniform vec3 viewPos;
+uniform sampler2D first_texture;
+uniform samplerCube cubeMapTexture;
+
+void main() {
+    // fragColor = vec4(texture(first_texture, aTexCoord).rgb, 1.0f);
+    //fragColor = vec4(texture(cubeMapTexture, aTexCoord).rgb, 1.0f);
+    fragColor = texture(cubeMapTexture, vec3(1.0, -1.0, 1.0) * aTexCoord);
+
+
+}
